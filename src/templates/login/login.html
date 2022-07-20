@@ -1,0 +1,94 @@
+{% extends "./layout/layout.html" %}
+
+{% block css %}
+    <link href="{{ url_for('static', filename='css/login.css') }}" rel="stylesheet">  
+{% endblock %}
+
+{% block title %}
+    Login APP
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#"><span class="blackBrand">Proyecto</span><span class="redDelta">Delta</span><span class="version">0.0.1</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                &nbsp;
+            </li>
+            <li class="nav-item">
+                &nbsp;
+            </li>
+            <li class="nav-item dropdown">
+                &nbsp;
+            </li>
+            <li class="nav-item">
+                &nbsp;
+            </li>
+            </ul>
+            <form class="d-flex">
+                &nbsp;
+            </form>
+        </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-8"></div>
+            <div class="col-4">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <br/>
+                        {% for message in messages %}
+                            <div class="alert alert-danger alert-dismissible" role="alert">
+                                <i class="fa-solid fa-triangle-exclamation" style="color: red;"></i>
+                                <strong>{{ message }}</strong>
+                                <button type="button" class="btn btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor%}
+                    {% endif %}
+                {% endwith %}
+                <div class="card mt-5 mb-3">
+                    <div class="card-header bg-dark text-white">Ingreso de Usuarios</div>
+                    <div class="card-body">
+                        <form action="/login" method="POST">
+                            <div class="mb-3">
+                              <label for="txtUsername" class="form-label">Usuario / Correo Electrónico</label>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fa-solid fa-user"></i>
+                                </span>
+                                <input type="text" id="txtLogin" name="txtLogin" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                              </div>
+                            </div>
+                            <div class="mb-3">
+                              <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                              <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fa-solid fa-key"></i>
+                                </span>
+                                <input type="text" id="txtPassword" name="txtPassword" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                              </div>
+                            </div>
+                            <div class="mb-3 form-check">
+                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary" type="submit">Ingresar</button>                                
+                            </div>
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    {% block css %}{% endblock %}
+</head>
+<body>
+    {% block navbar %}
+        {% include 'layout/navbar.html' %}
+    {% endblock %}
+    {% block body %}
+    {% endblock %}
+    <script src="{{ url_for('static', filename = 'js/bootstrap.bundle.min.js') }}"></script>
+    <script src="https://kit.fontawesome.com/c0077b6eb6.js" crossorigin="anonymous"></script>
+    {% block js %}{% endblock %}
+</body>
+</html>

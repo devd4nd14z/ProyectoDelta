@@ -1,0 +1,21 @@
+body {
+    background-image: url('https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.blackBrand {
+    color: #000;
+    font-weight: bolder;
+}
+
+.redDelta {
+    color: #f00;
+}
+
+.version {
+    color: #000;
+    font-size: 0.6rem;
+}
